@@ -10,6 +10,11 @@ class Settings(BaseSettings):
     PROJECT_NAME: str
     API_V1_STR: str = "/web-image-analyzer/api/v1"
     
+    SECRET_KEY: str = "your_secret_key" # Change this in production!
+    ALGORITHM: str = "HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
+    REFRESH_TOKEN_EXPIRE_DAYS: int = 7
+    
     BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = []
 
     @field_validator("BACKEND_CORS_ORIGINS", mode='before')
