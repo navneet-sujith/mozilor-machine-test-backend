@@ -4,6 +4,7 @@ python-multipart
 
 # Auth & Security
 passlib[bcrypt]
+bcrypt==3.2.2
 python-jose[cryptography]
 
 # HTTP Client
@@ -26,3 +27,6 @@ pydantic
 pydantic-settings
 psycopg2
 email-validator
+
+# Rate Limiting
+slowapi
