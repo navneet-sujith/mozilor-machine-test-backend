@@ -1,0 +1,28 @@
+fastapi
+uvicorn[standard]
+python-multipart
+
+# Auth & Security
+passlib[bcrypt]
+python-jose[cryptography]
+
+# HTTP Client
+httpx
+
+# HTML Parsing
+beautifulsoup4
+lxml
+
+# Database (Async)
+SQLAlchemy>=2.0
+asyncpg
+alembic
+
+# Environment Variables
+python-dotenv
+
+# Utilities
+pydantic
+pydantic-settings
+psycopg2
+email-validator
