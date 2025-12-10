@@ -15,7 +15,7 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7
     
-    BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = []
+    BACKEND_CORS_ORIGINS: List[str] = []
 
     @field_validator("BACKEND_CORS_ORIGINS", mode='before')
     @classmethod
@@ -40,5 +40,16 @@ class Settings(BaseSettings):
         
         values = info.data
         return f"postgresql://{values.get('POSTGRES_USER')}:{values.get('POSTGRES_PASSWORD')}@{values.get('POSTGRES_SERVER')}/{values.get('POSTGRES_DB') or ''}"
+
+    SQLALCHEMY_ASYNC_DATABASE_URI: Optional[str] = None
+
+    @field_validator("SQLALCHEMY_ASYNC_DATABASE_URI", mode='after')
+    @classmethod
+    def assemble_async_db_connection(cls, v: Optional[str], info: ValidationInfo) -> Any:
+        if isinstance(v, str):
+            return v
+
+        values = info.data
+        return f"postgresql+asyncpg://{values.get('POSTGRES_USER')}:{values.get('POSTGRES_PASSWORD')}@{values.get('POSTGRES_SERVER')}/{values.get('POSTGRES_DB') or ''}"
     
 settings = Settings()

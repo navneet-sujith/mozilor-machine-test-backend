@@ -53,4 +53,10 @@ if settings.BACKEND_CORS_ORIGINS:
     )
 
 from app.api.api_v1.registration_and_login import router as auth_router
-app.include_router(auth_router, prefix=settings.API_V1_STR, tags=["auth"])
+app.include_router(auth_router, prefix=f"{settings.API_V1_STR}/auth", tags=["auth"])
+
+from app.api.api_v1.users import router as users_router
+app.include_router(users_router, prefix=f"{settings.API_V1_STR}/users", tags=["users"])
+
+from app.api.api_v1.scans import router as scans_router
+app.include_router(scans_router, prefix=f"{settings.API_V1_STR}/scans", tags=["scans"])
