@@ -8,7 +8,7 @@ bcrypt==3.2.2
 python-jose[cryptography]
 
 # HTTP Client
-httpx
+aiohttp
 
 # HTML Parsing
 beautifulsoup4

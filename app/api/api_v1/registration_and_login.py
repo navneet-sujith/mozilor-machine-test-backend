@@ -1,8 +1,7 @@
-from typing import Generator, Any
+from typing import Any
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
-from app.db.session import SessionLocal
 from app.schemas.user import UserCreate, UserResponse, UserLogin, Token
 from app.controllers.auth_controller import AuthController
 from app.core.security import SecurityService
