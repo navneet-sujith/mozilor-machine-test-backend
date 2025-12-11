@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class Settings(BaseSettings):
+    SENTRY_DSN: Optional[str] = None
     PROJECT_NAME: str
     API_V1_STR: str = "/web-image-analyzer/api/v1"
     
