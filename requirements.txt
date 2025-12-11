@@ -30,3 +30,6 @@ email-validator
 
 # Rate Limiting
 slowapi
+
+# Error Tracking
+sentry-sdk[fastapi]
